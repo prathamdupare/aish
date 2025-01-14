@@ -1,8 +1,6 @@
 # aish
 
-<video src="showcase.mkv" controls="controls" style="max-width: 100%;">
-  Your browser does not support the video tag.
-</video>
+![Demo](/showcase.gif)
 
 This is a simple Bash script designed to integrate AI for generating Unix shell commands..
 
