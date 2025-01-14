@@ -4,6 +4,8 @@ This is a simple Bash script designed to integrate AI for generating Unix shell 
 
 - You will need an API key from Groq - [Generate it here](https://console.groq.com/keys). It's free!
 
+- Just change the 'api_key' value in the script.
+
 # Shebang Comments
 
 #!/usr/bin/env bash
