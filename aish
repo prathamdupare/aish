@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+green='\033[0;32m'
+clear='\033[0m'
+if [ -z "$1" ]; then
+	echo "Error: No message argument provided. Please provide a message."
+	echo "Usage: ./script \"Your message here\""
+	exit 1
+fi
+
+api_key="GROQ_API_KEY_HERE"
+api_endpoint="https://api.groq.com/openai/v1/chat/completions"
+
+user_message="$1"
+
+api_command="curl -X POST \
+  \"$api_endpoint\" \
+  -H 'Authorization: Bearer $api_key' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    \"model\": \"llama-3.3-70b-versatile\",
+    \"messages\": [{
+        \"role\": \"user\",
+        \"content\": \"$user_message  Give me a Unix shell command. Only return the command without any extra text, labels, or explanations. The command must be at most 10 words. \"
+    }]
+  }'"
+response=$(eval "$api_command")
+
+command_output=$(echo "$response" | jq -r '.choices[0].message.content')
+
+printf "Command: ${green}$command_output${clear} \n"
+
+read -p "Press Enter to execute the command or type 'no' to cancel\n: "
+
+if [[ "$command_output" == "no" ]]; then
+	echo "Command execution canceled."
+	exit 0
+fi
+
+eval "$command_output"
