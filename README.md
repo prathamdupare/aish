@@ -1,6 +1,6 @@
 # aish
 
-<video src="assets/showcase.mkv" controls="controls" style="max-width: 100%;">
+<video src="showcase.mkv" controls="controls" style="max-width: 100%;">
   Your browser does not support the video tag.
 </video>
 
