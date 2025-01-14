@@ -1,5 +1,10 @@
 # aish
 
+<video src="assets/showcase.mkv" controls="controls" style="max-width: 100%;">
+  Your browser does not support the video tag.
+</video>
+
+
 This is a simple Bash script designed to integrate AI for generating Unix shell commands..
 
 - You will need an API key from Groq - [Generate it here](https://console.groq.com/keys). It's free!
